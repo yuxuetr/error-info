@@ -1,6 +1,8 @@
-use darling::ast::{Data, Fields, Style};
-use darling::util::Ignored;
-use darling::{FromDeriveInput, FromVariant};
+use darling::{
+  ast::{Data, Fields, Style},
+  util::Ignored,
+  FromDeriveInput, FromVariant,
+};
 use proc_macro2::TokenStream;
 use quote::quote;
 use syn::DeriveInput;
@@ -53,7 +55,7 @@ pub(crate) fn process_error_info(input: DeriveInput) -> TokenStream {
       let varint_code = match fields.style {
         Style::Struct => quote! { #name::#ident { .. }},
         Style::Tuple => quote! { #name::#ident(_)},
-        Style::Unit => quote! { #name::ident},
+        Style::Unit => quote! { #name::#ident},
       };
       quote! {
         #varint_code => {

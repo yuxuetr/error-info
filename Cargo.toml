@@ -3,6 +3,7 @@ members = ["error-code", "error-code-derive"]
 resolver = "2"
 
 [workspace.dependencies]
+http = "1"
 anyhow = "1"
 thiserror = "1"
 error-code = { path = "./error-code" }

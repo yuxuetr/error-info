@@ -1,4 +1,5 @@
 mod error_info;
+
 use error_info::process_error_info;
 use proc_macro::TokenStream;
 
